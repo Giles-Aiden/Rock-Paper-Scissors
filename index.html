@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js.js"></script>
+    <link rel="stylesheet" href="main.css" />
+    <title>RPS game</title>
+  </head>
+  <body>
+    <h1>My Rock Paper Scissors game</h1>
+    <div class="battle-area">
+      <img src="images/left.gif" id="player" class="left" />
+      <div>
+        <h1>Best-Of</h1>
+        <br />
+        <button onclick='scoreKeep(false, true, 2)'>3</button>
+        <button onclick='scoreKeep(false, true, 3)'>5</button>
+        <button onclick='scoreKeep(false, true, 4)'>7</button>
+        <button onclick='scoreKeep(false, true, 1)'>frenzy</button>
+        <br />
+        <h1>Pick Your Attack!</h1>
+        <br />
+        <button onclick='rps(1);'>Rock</button>
+        <button onclick='rps(2);'>Paper</button>
+        <button onclick='rps(3);'>Scissors</button>
+        <h1>Score</h1>
+        <br />
+        <p id='pScore'>Player: 0</p>
+        <p>     </p>
+        <p id='comScore'>Com: 0</p>
+        <br />
+        <img id='result' />
+      </div>
+      <img src="images/right.gif" id="com" class="right" />
+  </body>
+</html>

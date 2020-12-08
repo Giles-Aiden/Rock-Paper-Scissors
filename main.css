@@ -1,0 +1,26 @@
+body {
+  background-color: dodgerblue;
+  text-align: center;
+}
+
+.battle-area {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.battle-area img {
+  width: 30%;
+  height: auto;
+}
+/*
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+*/
