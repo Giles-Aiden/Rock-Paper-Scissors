@@ -13,11 +13,33 @@ body {
 
 .battle-area img {
   width: 30%;
-  height: auto;
+  height: 30%;
+}
+
+.battle-area h1 {
+  font-size: 5vh;
 }
 
 .attack {
-  background-color: red;
+  background-color: firebrick;
+  color: dodgerblue;
+  border: 0.5em groove red;
+  border-radius: 2em;
+}
+
+.attack:disabled {
+  animation-name: attacking;
+  animation-duration: 500ms;
+  background-color: black;
+}
+
+@keyframes attacking {
+  from {
+    background-color: firebrick;
+  }
+  to {
+    background-color: black;
+  }
 }
 
 #result {
