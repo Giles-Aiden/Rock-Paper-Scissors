@@ -1,11 +1,11 @@
 //Assumes input is 1=rock 2=paper 3=sissors
 //Outputs [1=win 2=tie 3=loss, computer rps choice]
 async function rps(input) {
+  console.log('rps function called');
   //generate cpu attack choice
-  com = Math.trunc(Math.random() * 3 + 1);
-
-  comImg = document.getElementById('com');
-  playerImg = document.getElementById('player');
+  var com = Math.trunc(Math.random() * 3 + 1);
+  var comImg = document.getElementById('com');
+  var playerImg = document.getElementById('player');
   //sets computer image
   switch (com) {
     case 1:
@@ -22,19 +22,19 @@ async function rps(input) {
   switch (input) {
     case 1:
       playerImg.src = 'images/lr.png';
-      await sleep(2000);
+      await sleep(1000);
       comImg.src = 'images/right.gif';
       playerImg.src = 'images/left.gif';
       break;
     case 2:
       playerImg.src = 'images/lp.png';
-      await sleep(2000);
+      await sleep(1000);
       comImg.src = 'images/right.gif';
       playerImg.src = 'images/left.gif';
       break;
     case 3:
       playerImg.src = 'images/ls.png';
-      await sleep(2000);
+      await sleep(1000);
       comImg.src = 'images/right.gif';
       playerImg.src = 'images/left.gif';
       break;
@@ -82,6 +82,22 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function canAttack(setting) {
+  if (setting) {
+    document.querySelectorAll('attack').forEach((elem) => {
+      console.log('Can now attack!');
+      elem.disabled = false;
+    });
+  } else {
+    document.querySelectorAll('attack').forEach((elem) => {
+      console.log('cant attack now');
+      elem.disabled = true;
+    });
+  }
+}
+
+canAttack(false);
+
 var maxScore = 1;
 var playerScore = 0;
 var cpuScore = 0;
@@ -90,24 +106,23 @@ var cpuScore = 0;
 // third value sets max score
 function scoreKeep(scoreAdj, reset = false, mScore = maxScore) {
   maxScore = mScore;
+  let resultImg = document.getElementById('result');
   if (scoreAdj == true) {
     playerScore += 1;
   } else {
     cpuScore += 1;
   }
+  if (playerScore == maxScore) {
+    resultImg.src = 'images/win.gif';
+  } else if (cpuScore == maxScore) {
+    resultImg.removeAttribute('src');
+  }
   if (reset) {
     playerScore = 0;
     cpuScore = 0;
+    resultImg.src = 'images/transparent.png';
   }
   //Sets HTML to score
   document.getElementById('comScore').innerHTML = 'Com: ' + cpuScore;
   document.getElementById('pScore').innerHTML = 'Player: ' + playerScore;
-}
-resultImg = document.getElementById('result');
-while (true) {
-  if (playerScore == maxScore) {
-    resultImg.src = 'images/win.gif';
-  } else if (cpuScore == maxScore) {
-    console.log('ree');
-  }
 }

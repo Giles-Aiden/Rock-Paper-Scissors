@@ -15,12 +15,14 @@ body {
   width: 30%;
   height: auto;
 }
-/*
-.right {
-  float: right;
+
+.attack {
+  background-color: red;
 }
 
-.left {
-  float: left;
+#result {
+  width: 10em;
+  height: auto;
+  margin: 0;
+  padding: 0;
 }
-*/
